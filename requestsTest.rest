@@ -5,7 +5,7 @@ Content-Type: application/json
 {
   "usuarioId": 1,
   "consumoKwh": 120,
-  "dataLeitura": "2025-03-01"
+  "dataLeitura": "2025-04-15"
 }
 
 ### Registrar segundo consumo (mês com valor maior)
@@ -15,7 +15,7 @@ Content-Type: application/json
 {
   "usuarioId": 1,
   "consumoKwh": 150,
-  "dataLeitura": "2025-04-01"
+  "dataLeitura": "2025-05-15"
 }
 
 ### Verificar o alerta (deve mostrar que o consumo aumentou)
