@@ -1,0 +1,43 @@
+### Registrar novo consumo primeiro mês
+POST http://localhost:3000/consumo-energia
+Content-Type: application/json
+
+{
+  "usuarioId": 1,
+  "consumoKwh": 120,
+  "dataLeitura": "2025-03-01"
+}
+
+### Registrar segundo consumo (mês com valor maior)
+POST http://localhost:3000/consumo-energia
+Content-Type: application/json
+
+{
+  "usuarioId": 1,
+  "consumoKwh": 150,
+  "dataLeitura": "2025-04-01"
+}
+
+### Verificar o alerta (deve mostrar que o consumo aumentou)
+GET http://localhost:3000/consumo-energia/1/alerta
+
+
+
+### Consultar histórico de consumo do usuário 1 (entre janeiro e junho)
+GET http://localhost:3000/consumo-energia/1/historico?inicio=2025-01-01&fim=2025-06-30
+
+### Verificar alerta de consumo elevado para o usuário 1
+GET http://localhost:3000/consumo-energia/1/alerta
+
+### Adicionar consumo para outro usuário
+POST http://localhost:3000/consumo-energia
+Content-Type: application/json
+
+{
+  "usuarioId": 2,
+  "consumoKwh": 200,
+  "dataLeitura": "2025-04-01"
+}
+
+### Verificar alerta para o usuário 2 (deve retornar que precisa de pelo menos 2 registros)
+GET http://localhost:3000/consumo-energia/2/alerta
